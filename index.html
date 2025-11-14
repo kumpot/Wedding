@@ -1,165 +1,76 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Егор и Виктория — Приглашение</title>
+/* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ===== */
+@media (max-width: 600px) {
 
-<style>
     body {
-        margin: 0;
-        font-family: 'Georgia', serif;
-        background: #f8f4ef;
-        color: #5a4a3b;
-        line-height: 1.6;
+        padding: 0 15px;
+    }
+
+    /* Фото */
+    .hero-image {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    /* Имена на фото */
+    .hero-text {
+        font-size: 28px;
+        bottom: 20px; /* ниже чтобы не заходило на лица */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
         text-align: center;
     }
 
-    /* Блок с фото и текстом поверх */
-    .hero-wrapper {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .hero-wrapper img {
-        width: 100%;
-        display: block;
-        object-fit: cover;
-        max-height: 600px; /* как было раньше */
-    }
-
-    /* Текст поверх фото – чуть ниже центра */
-    .hero-text {
-        position: absolute;
-        bottom: 22%;               /* регулирует положение — чуть ниже центра */
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
-        font-size: 30px;
-        font-weight: bold;
-        text-shadow: 0 3px 10px rgba(0,0,0,0.6);
-        width: 90%;
-        line-height: 1.3;
-    }
-
-    .section {
-        padding: 25px;
-        max-width: 800px;
-        margin: auto;
-    }
-
-    .title-block {
+    /* Дата */
+    .date-block h2 {
         font-size: 26px;
-        margin-bottom: 10px;
-        font-weight: bold;
     }
 
-    .sub-info {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-
-    p {
-        text-align: left;
-        margin-bottom: 20px;
+    .date-block .middle-line span {
         font-size: 18px;
+        margin: 0 6px;
     }
 
-    .btn {
-        margin-top: 40px;
-        display: inline-block;
-        padding: 14px 26px;
-        background: #cbb8a0;
-        color: white;
-        font-size: 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: 0.2s;
-        text-decoration: none;
+    .date-block h3 {
+        font-size: 26px;
     }
 
-    .btn:hover {
-        background: #b8a187;
-    }
-
-    /* Модалка */
-    .overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.45);
-        display: none;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .modal {
-        background: #fff;
-        padding: 30px;
+    /* Полоска */
+    .line {
         width: 80%;
-        max-width: 400px;
-        border-radius: 14px;
+        margin: 20px auto;
+    }
+
+    /* Основной текст */
+    .section {
+        width: 100%;
+        padding: 0 5px;
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .section h3 {
         font-size: 20px;
-        color: #5a4a3b;
-        box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        animation: fadeIn 0.35s ease;
+        text-align: center;
     }
 
-    @keyframes fadeIn {
-        from {opacity: 0; transform: translateY(10px);}
-        to {opacity: 1; transform: translateY(0);}
+    /* Кнопка */
+    .rsvp-btn {
+        width: 80%;
+        font-size: 18px;
+        padding: 12px 0;
+        margin: 25px auto;
     }
-</style>
-</head>
 
-<body>
-
-<!-- Фото + текст поверх -->
-<div class="hero-wrapper">
-    <img src="photo1.jpg" alt="Егор и Виктория">
-    <div class="hero-text">
-        Егор & Виктория<br>
-    </div>
-</div>
-
-<!-- Дата • место -->
-<div class="section">
-    <div class="title-block">25 июля 2026</div>
-    <div class="sub-info">11:30 • город Пермь, улица Гальперина 100</div>
-
-    <p>25.07.2026 для нас наступит одно из самых значимых событий — наша свадьба!
-    Мы будем очень рады видеть вас рядом и вместе разделить атмосферу этого незабываемого праздника.</p>
-
-    <p><b>ДРЕСС-КОД:</b><br>
-    Мы будем признательны, если в этот особенный день ваши образы будут выдержаны в пастельных оттенках и элегантном деловом стиле.
-    Такая палитра придаст нашему празднику утончённость и гармонию, а ваши наряды станут частью общей атмосферы нежности и красоты.</p>
-
-    <p><b>НАШИ МАЛЕНЬКИЕ ПОЖЕЛАНИЯ:</b><br>
-    Пусть в день нашего праздника вас сопровождают лёгкость и радость, а в качестве подарка мы будем рады принять
-    денежный вклад, оформленный в конверте.</p>
-
-    <p><b>ПРИМЕЧАНИЕ:</b><br>
-    Просим вас отдохнуть и полностью окунуться в праздник. Все заботы мы взяли на себя — просто наслаждайтесь этим днем!</p>
-
-    <div class="btn" onclick="openModal()">Я приду</div>
-</div>
-
-<!-- Модалка -->
-<div class="overlay" id="overlay">
-    <div class="modal">
-        Будем вас ждать ♥️<br><br>
-        С любовью,<br>
-        Виктория и Егор
-    </div>
-</div>
-
-<script>
-    function openModal() {
-        document.getElementById("overlay").style.display = "flex";
+    /* Модальное окно */
+    .modal-box {
+        width: 85%;
+        padding: 25px;
     }
-</script>
-</body>
-</html>
+
+    .modal-box h2 {
+        font-size: 22px;
+    }
+}

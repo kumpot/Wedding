@@ -1,104 +1,113 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Приглашение на свадьбу Егора и Виктории</title>
-  <style>
-    /* Общий стиль */
-    body {
-      margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      background: linear-gradient(to bottom, #f9f4ef, #e7d8c9);
-      color: #4a3b2a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      overflow-x: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Егор & Виктория — Свадебное приглашение</title>
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.2em;
-      letter-spacing: 2px;
-      animation: fadeIn 2s ease;
-    }
+    <style>
+        body {
+            margin: 0;
+            font-family: "Georgia", serif;
+            background-color: #f5efe7;
+            color: #5a4634;
+            text-align: center;
+            animation: fadeIn 1.2s ease;
+        }
 
-    h2 {
-      font-size: 1.8em;
-      font-weight: normal;
-      margin-top: 0;
-      margin-bottom: 1.5em;
-      color: #7a5e3b;
-      animation: fadeIn 3s ease;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-    .date, .place {
-      font-size: 1.3em;
-      margin: 0.5em 0;
-      animation: fadeIn 4s ease;
-    }
+        /* Большое фото-обложка */
+        .hero-photo {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+        }
 
-    .divider {
-      width: 120px;
-      height: 2px;
-      background-color: #c1a98d;
-      margin: 1.5em auto;
-      animation: fadeIn 3s ease;
-    }
+        h1 {
+            font-size: 44px;
+            margin-top: 35px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            color: #4c3a2c;
+        }
 
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9em;
-      color: #8a755b;
-      animation: fadeIn 5s ease;
-    }
+        h2 {
+            font-size: 22px;
+            margin-bottom: 35px;
+            color: #6a5342;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .second-photo-block {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+        }
 
-    /* Анимация плавного появления при загрузке */
-    .container {
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      max-width: 500px;
-      animation: fadeIn 2s ease;
-    }
+        .second-photo {
+            width: 90%;
+            max-width: 700px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2.3em; }
-      h2 { font-size: 1.4em; }
-      .date, .place { font-size: 1.1em; }
-    }
-  </style>
+        /* Информация */
+        .info-block {
+            margin-top: 40px;
+            font-size: 22px;
+            line-height: 1.6;
+        }
+
+        .date {
+            margin-top: 10px;
+            font-size: 28px;
+            color: #4c3a2c;
+            font-weight: bold;
+        }
+
+        .place {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        .footer {
+            margin-top: 45px;
+            font-size: 18px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+
+    <!-- Большая обложка -->
+    <img src="photo1.jpg" class="hero-photo" alt="Фото молодожёнов — обложка">
+
     <h1>Егор & Виктория</h1>
-    <h2>Приглашают вас на свадьбу</h2>
+    <h2>Приглашаем разделить наш особенный день</h2>
 
-    <div class="divider"></div>
+    <!-- Второе фото -->
+    <div class="second-photo-block">
+        <img src="photo2.jpg" class="second-photo" alt="Фото молодожёнов второе">
+    </div>
 
-    <p class="date">26 июня 2026 года • 12:00</p>
-    <p class="place">г. Пермь, ул. Гальперина, 100</p>
+    <!-- Информация о свадьбе -->
+    <div class="info-block">
+        <div class="date">26 июня 2026 года • 12:00</div>
 
-    <div class="divider"></div>
+        <div class="place">
+            город Пермь<br>
+            улица Гальперина, 100
+        </div>
+    </div>
 
-    <p style="font-style: italic; color:#7b664c;">
-      Мы будем счастливы разделить этот особенный день с вами.
-    </p>
-  </div>
+    <div class="footer">С любовью, Егор и Виктория 🤍</div>
 
-  <div class="footer">
-    С любовью, Егор и Виктория 💕
-  </div>
 </body>
 </html>

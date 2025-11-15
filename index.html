@@ -4,10 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Егор и Виктория — Приглашение</title>
+
 <style>
   body{
     margin:0;
-    font-family: 'Georgia', serif;
+    font-family:'Georgia',serif;
     background:#f8f4ef;
     color:#5a4a3b;
     text-align:center;
@@ -15,9 +16,16 @@
     overflow-x:hidden;
   }
 
-  /* Фото + имена */
+  /* Фото */
   .hero-wrapper{position:relative;width:100%;overflow:hidden;}
-  .hero-wrapper img{width:100%;max-height:420px;object-fit:cover;display:block;}
+  .hero-wrapper img{
+    width:100%;
+    max-height:420px;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* Текст на фото */
   .hero-text{
     position:absolute;
     bottom:18%;
@@ -27,7 +35,6 @@
     font-size:32px;
     font-weight:700;
     text-shadow:0 3px 10px rgba(0,0,0,0.6);
-    text-align:center;
     opacity:0;
     animation:fadeIn 1.2s ease forwards;
     animation-delay:0.6s;
@@ -39,21 +46,31 @@
     to  {opacity:1; transform:translate(-50%,0);}
   }
 
-  /* Блок даты */
+  /* Дата */
   .date-block{
     margin:35px 0 10px 0;
-    color:#4c3a2c;
     opacity:0;
-    animation:fadeSimple 1.0s ease forwards;
+    animation:fadeSimple 1s ease forwards;
     animation-delay:1.5s;
   }
-  @keyframes fadeSimple{from{opacity:0}to{opacity:1}}
 
-  .month, .year{font-size:26px;font-weight:700;margin:6px 0;}
-  .center-line{font-size:26px;font-weight:700;margin:10px 0;}
-  .center-line .divider{margin:0 9px;opacity:.5;font-weight:400;}
+  @keyframes fadeSimple{
+    from{opacity:0;}
+    to  {opacity:1;}
+  }
 
-  /* Полоска — перед абзацами */
+  .month,.center-line,.year{
+    font-size:26px;
+    font-weight:700;
+    margin:6px 0;
+  }
+
+  .center-line .divider{
+    opacity:.5;
+    margin:0 9px;
+  }
+
+  /* Полоска */
   .line{
     width:200px;
     height:1px;
@@ -61,119 +78,100 @@
     margin:22px auto;
     opacity:0;
     animation:fadeSimple 1s ease forwards;
-    animation-delay:2.0s;
+    animation-delay:2s;
   }
 
-  /* Основной текст (центр) */
+  /* Основной текст */
   .section{
     max-width:820px;
     margin:20px auto 40px;
     padding:0 22px;
-    text-align:center;
     opacity:0;
     animation:fadeSimple 1s ease forwards;
     animation-delay:2.7s;
   }
+
   .section p{font-size:18px;margin-bottom:24px;}
-  .section b{display:block;font-size:20px;margin-bottom:8px;font-weight:700}
+  .section b{display:block;font-size:20px;margin-bottom:8px;}
+
+  /* Палитра */
+  .palette-grid{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:18px;
+    justify-items:center;
+    margin:30px auto 40px;
+    max-width:900px;
+  }
+
+  .palette-grid .color{
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  box-shadow:
+    inset 0 3px 6px rgba(255,255,255,0.6),
+    inset 0 -3px 6px rgba(0,0,0,0.08),
+    0 4px 10px rgba(0,0,0,0.12);
+  }
 
   /* Кнопка */
   .btn{
-    display:inline-block;margin-top:8px;padding:12px 24px;border-radius:8px;
-    background:#cbb8a0;color:#fff;font-size:18px;text-decoration:none;cursor:pointer;
-    transition:transform .18s,box-shadow .18s;
+    display:inline-block;
+    margin-top:8px;
+    padding:12px 24px;
+    border-radius:8px;
+    background:#cbb8a0;
+    color:#fff;
+    font-size:18px;
+    text-decoration:none;
+    cursor:pointer;
+    transition:.18s;
   }
-  .btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(0,0,0,0.12)}
+  .btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 18px rgba(0,0,0,0.12);
+  }
 
   /* Модалка */
-  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;justify-content:center;align-items:center;z-index:1000}
-  .modal{background:#fff;padding:26px;border-radius:12px;max-width:420px;width:88%;box-shadow:0 12px 30px rgba(0,0,0,.15);text-align:center;color:#5a4a3b;font-size:18px}
-
-  /* Адаптив */
-  @media (max-width:640px){
-    .hero-text{font-size:26px;bottom:20%}
-    .month,.center-line,.year{font-size:20px}
-    .section p{font-size:16px}
-    .line{width:100px}
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
   }
-  /* ===== АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ ===== */
-@media (max-width: 600px) {
 
-    body {
-        padding: 0 15px;
-    }
+  .modal{
+    background:#fff;
+    padding:26px;
+    border-radius:12px;
+    max-width:420px;
+    width:88%;
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+    text-align:center;
+    color:#5a4a3b;
+    font-size:18px;
+  }
 
-    /* Фото */
-    .hero-image {
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 20px;
+  /* Мобильная адаптация */
+  @media(max-width:600px){
+    .hero-text{font-size:26px;bottom:20px;}
+    .palette-grid{
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:20px;
     }
-
-    /* Имена на фото */
-    .hero-text {
-        font-size: 28px;
-        bottom: 20px; /* ниже чтобы не заходило на лица */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        text-align: center;
+    .palette-grid .color{
+      width:42px;
+      height:42px;
     }
-
-    /* Дата */
-    .date-block h2 {
-        font-size: 26px;
-    }
-
-    .date-block .middle-line span {
-        font-size: 18px;
-        margin: 0 6px;
-    }
-
-    .date-block h3 {
-        font-size: 26px;
-    }
-
-    /* Полоска */
-    .line {
-        width: 80%;
-        margin: 20px auto;
-    }
-
-    /* Основной текст */
-    .section {
-        width: 100%;
-        padding: 0 5px;
-        font-size: 16px;
-        line-height: 1.5;
-        text-align: center;
-    }
-
-    .section h3 {
-        font-size: 20px;
-        text-align: center;
-    }
-
-    /* Кнопка */
-    .rsvp-btn {
-        width: 80%;
-        font-size: 18px;
-        padding: 12px 0;
-        margin: 25px auto;
-    }
-
-    /* Модальное окно */
-    .modal-box {
-        width: 85%;
-        padding: 25px;
-    }
-
-    .modal-box h2 {
-        font-size: 22px;
-    }
-}
+    .section p{font-size:16px;}
+  }
 </style>
 </head>
+
 <body>
 
   <!-- Фото -->
@@ -183,24 +181,36 @@
   </div>
 
   <!-- Дата -->
-  <div class="date-block">
-    <div class="month">июля</div>
-
-    <div class="center-line">
-      Суббота <span class="divider">|</span> 25 <span class="divider">|</span> 11:30
+  <div class="date-block""
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    color: #4a392d;
+">
+    <div style="font-size: 42px; font-weight: 600;">
+        25 июля 2026г.
     </div>
 
-    <div class="year">2026</div>
-  </div>
+    <div style="font-size: 20px; margin-top: 4px; opacity: .75;">
+        Суббота
+    </div>
 
-  <!-- Тонкая полоска (перед абзацами) -->
-  <div class="line" aria-hidden="true"></div>
+    <div style="font-size: 18px; opacity: .75;">
+       Пермь ул. Адмирала Нахимова, 2
+    </div>
+    
+    <div style="font-size: 18px; opacity: .75;">
+        11:30
+    </div>
+</div>
 
-  <!-- Основной текст с заголовками -->
+  <div class="line"></div>
+
   <div class="section">
-    <p><b>25 июля 2026</b>
+
+    <p><b>25 июля 2026г.</b>
       для нас наступит одно из самых значимых событий — наша свадьба!
-      Мы будем очень рады видеть вас рядом и разделить атмосферу этого незабываемого дня.
+      Мы будем очень рады видеть вас рядом и разделить атмосферу этого дня.
     </p>
 
     <p><b>Дресс-код</b>
@@ -208,21 +218,40 @@
       Такая палитра придаст празднику утончённость и гармонию.
     </p>
 
-    <p><b>Наши маленькие пожелания</b>
-      В качестве подарка мы будем рады принять денежный вклад, оформленный в конверте.
-    </p>
+    <!-- ПАЛИТРА 8×2 -->
+    <div class="palette-grid">
+      <div class="color" style="background:#F4EDEA;"></div>
+      <div class="color" style="background:#F0DDD9;"></div>
+      <div class="color" style="background:#E9CFCB;"></div>
+      <div class="color" style="background:#D6B8B3;"></div>
+      <div class="color" style="background:#DDE6EE;"></div>
+      <div class="color" style="background:#B4C9DB;"></div>
+      <div class="color" style="background:#89A8C0;"></div>
+      <div class="color" style="background:#6B8297;"></div>
+
+      <div class="color" style="background:#F6F3EA;"></div>
+      <div class="color" style="background:#E5DCCF;"></div>
+      <div class="color" style="background:#CAB9A6;"></div>
+      <div class="color" style="background:#A68D76;"></div>
+      <div class="color" style="background:#E8D3BA;"></div>
+      <div class="color" style="background:#D1A97D;"></div>
+      <div class="color" style="background:#C48858;"></div>
+      <div class="color" style="background:#7A5237;"></div>
+    </div>
 
     <p><b>Примечание</b>
-      Просим вас отдохнуть и полностью окунуться в праздник. Просто наслаждайтесь этим днём — обо всём мы уже позаботились.
+      Просто наслаждайтесь праздником — обо всём мы уже позаботились.
     </p>
 
     <a class="btn" onclick="openModal()">Я приду</a>
+
   </div>
 
   <!-- Модалка -->
-  <div class="overlay" id="overlay" role="dialog" aria-hidden="true">
+  <div class="overlay" id="overlay">
     <div class="modal">
-      Будем вас ждать ❤️<br><br>С любовью,<br>Виктория и Егор
+      Будем вас ждать ❤️<br><br>
+      С любовью,<br>Егор и Виктория
       <div style="margin-top:18px;">
         <a class="btn" onclick="closeModal()">Закрыть</a>
       </div>
@@ -230,8 +259,12 @@
   </div>
 
 <script>
-  function openModal(){ document.getElementById('overlay').style.display='flex'; document.getElementById('overlay').setAttribute('aria-hidden','false'); }
-  function closeModal(){ document.getElementById('overlay').style.display='none'; document.getElementById('overlay').setAttribute('aria-hidden','true'); }
+  function openModal(){
+    document.getElementById('overlay').style.display='flex';
+  }
+  function closeModal(){
+    document.getElementById('overlay').style.display='none';
+  }
 </script>
 
 </body>

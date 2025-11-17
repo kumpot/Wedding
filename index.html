@@ -280,6 +280,33 @@
 .palette-grid.show { transition: opacity .6s ease .1s; opacity:1; }
 .btn.show { transition: opacity .5s ease .1s; opacity:1; }
 
+/* ----- МОБИЛЬНАЯ АДАПТАЦИЯ ТАЙМЕРА ----- */
+@media(max-width:600px){
+
+  .timer {
+      gap: 12px;
+      flex-wrap: wrap;
+  }
+
+  .t-item {
+      min-width: 60px;
+  }
+
+  .t-item span {
+      font-size: 32px;
+      padding: 10px 16px;
+      border-radius: 10px;
+  }
+
+  .t-item p {
+      font-size: 14px;
+  }
+
+  /* точки между блоками убрать на мобилке */
+  .dot {
+      display: none;
+  }
+}
 </style>
 </head>
 
@@ -542,3 +569,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+

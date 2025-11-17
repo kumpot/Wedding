@@ -280,32 +280,28 @@
 .palette-grid.show { transition: opacity .6s ease .1s; opacity:1; }
 .btn.show { transition: opacity .5s ease .1s; opacity:1; }
 
-/* ----- МОБИЛЬНАЯ АДАПТАЦИЯ ТАЙМЕРА ----- */
-@media(max-width:600px){
+/* МОБИЛЬНАЯ АДАПТАЦИЯ ТАЙМЕРА */
+@media (max-width: 480px) {
+    .countdown-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* теперь 2x2 вместо 4 в ряд */
+        gap: 15px;
+        padding: 0 10px;
+        justify-items: center;
+    }
 
-  .timer {
-      gap: 12px;
-      flex-wrap: wrap;
-  }
+    .countdown-box {
+        width: 100%;
+        max-width: 140px; /* чтобы не вылезали */
+        height: 90px;
+        padding: 0;
+        font-size: 42px;
+    }
 
-  .t-item {
-      min-width: 60px;
-  }
-
-  .t-item span {
-      font-size: 32px;
-      padding: 10px 16px;
-      border-radius: 10px;
-  }
-
-  .t-item p {
-      font-size: 14px;
-  }
-
-  /* точки между блоками убрать на мобилке */
-  .dot {
-      display: none;
-  }
+    .countdown-label {
+        font-size: 16px;
+        margin-top: -5px;
+    }
 }
 </style>
 </head>
@@ -569,4 +565,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
 
